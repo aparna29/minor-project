@@ -1,0 +1,12 @@
+%calculate RGB,Lab,lbp for all pixels
+train=zeros(numlabels,6)
+for k=1:numlabels
+    count=0;
+    for i=1:size(reshapelabels)
+            if(reshapelabels(i)==k)
+               train(k,:)=train(k,:)+featurevector(i,:)
+               count=count+1;
+            end
+    end
+    train(k)=train(k)/count; 
+end
